@@ -30,3 +30,5 @@
   echo "La concatenation des deux mots est: $CONCAT";
 
 </pre>
+## Exercice : argument type et droits
+### Script `test-fichier.sh`
