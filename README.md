@@ -1,5 +1,5 @@
 # Compte Rendu 
-
+## Exercice : paramètres
 ### Script `analyse.sh`
 
 <pre>
@@ -15,4 +15,10 @@
   fi
   echo "Voici la listedes parametres $@";
 
+</pre>
+## Exercice : vérification du nombre de paramètres
+### script `concat.sh`
+
+<pre>
+  
 </pre>
