@@ -20,5 +20,13 @@
 ### script `concat.sh`
 
 <pre>
+  #!/bin/bash
   
+  if [ $# -ne 2 ]; then 
+          echo "Erreur; Vous devez rentrer 2 parametre";
+          exit 1;
+  fi
+  CONCAT="$1$2";
+  echo "La concatenation des deux mots est: $CONCAT";
+
 </pre>
