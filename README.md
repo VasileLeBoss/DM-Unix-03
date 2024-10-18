@@ -22,11 +22,11 @@
 <pre>
   #!/bin/bash
   
-  if [ $# -ne 2 ]; then 
+  if [ $# -ne 2 ]; then // verifie si on a pas passsé strictement 2 parametres
           echo "Erreur; Vous devez rentrer 2 parametre";
           exit 1;
-  fi
-  CONCAT="$1$2";
+  fi // si 2 parametre : 
+  CONCAT="$1$2"; // concatination 
   echo "La concatenation des deux mots est: $CONCAT";
 
 </pre>
