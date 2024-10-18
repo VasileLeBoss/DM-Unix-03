@@ -33,27 +33,39 @@
 ## Exercice : argument type et droits
 ### Script `test-fichier.sh`
 <pre>
-  #!/bin/bash
+#!/bin/bash
 
-  # Vérifier si un argument a été passé
-  if [ $# -eq 0 ]; then
-      echo "Veuillez fournir un nom de fichier."
-      exit 1
-  fi
-  
-  # Assigner le premier argument à une variable
-  file="$1"
-  
-  # Vérifier si le fichier existe
-  if [ -e "$file" ]; then
-      # Afficher le type de fichier
-      filetype=$(file "$file")
-      echo "Type de fichier : $filetype"
-  
-      # Afficher les permissions d'accès
-      permissions=$(ls -l "$file" | awk '{print $1}')
-      echo "Permissions d'accès : $permissions"
-  else
-      echo "Le fichier '$file' n'existe pas."
-  fi
+# Vérifier si un argument a été passé
+if [ $# -eq 0 ]; then
+    echo "Veuillez fournir un nom de fichier ou de répertoire."
+    exit 1
+fi
+
+# Assigner le premier argument à une variable
+file="$1"
+
+# Vérifier si le fichier ou répertoire existe
+if [ -e "$file" ]; then
+    # Vérifier le type de fichier
+    if [ -d "$file" ]; then
+        echo "Le fichier $file est un répertoire"
+    elif [ -f "$file" ]; then
+        echo "Le fichier $file est un fichier ordinaire"
+        
+        # Vérifier si le fichier est vide ou non
+        if [ -s "$file" ]; then
+            echo "\"$file\" n'est pas vide"
+        else
+            echo "\"$file\" est vide"
+        fi
+    else
+        echo "Le type de $file n'est pas reconnu"
+    fi
+
+    # Afficher les permissions d'accès pour l'utilisateur courant
+    user_permissions=$(stat -c "%A" "$file")
+    echo "\"$file\" est accessible par $(whoami) en $user_permissions"
+else
+    echo "Le fichier ou répertoire \"$file\" n'existe pas."
+fi
 </pre>
