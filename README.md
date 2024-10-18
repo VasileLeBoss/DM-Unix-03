@@ -103,3 +103,6 @@ fi
 <pre>
   awk -F: '$3 > 100 { print $1 }' /etc/passwd;
 </pre>
+
+## Exercice : Mon utilisateur existe t’il
+### Script ̀̀ifuser.sh ̀
