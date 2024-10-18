@@ -99,3 +99,7 @@ fi
 
 ## Exercice : Lister les utilisateurs
 ### Script `listeuser.sh`
+
+<pre>
+  awk -F: '$3 > 100 { print $1 }' /etc/passwd;
+</pre>
