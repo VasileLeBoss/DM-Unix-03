@@ -105,4 +105,4 @@ fi
 </pre>
 
 ## Exercice : Mon utilisateur existe t’il
-### Script ̀̀ifuser.sh ̀
+### Script `ifuser.sh`
