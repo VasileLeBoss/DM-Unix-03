@@ -69,3 +69,30 @@ else
     echo "Le fichier ou répertoire \"$file\" n'existe pas."
 fi
 </pre>
+
+## Exercice : Afficher le contenu d’un répertoire
+### Script `listedir.sh`
+<pre>
+#!/bin/bash
+
+# Vérifier si un argument a été passé
+if [ $# -eq 0 ]; then
+    echo "Veuillez fournir un répertoire à lister."
+    exit 1
+fi
+dir="$1"
+#  le répertoire existe et est bien un répertoire
+if [ -d "$dir" ]; then
+    echo "####### fichiers dans $dir/"
+
+    # Lister uniquement les fichiers dans le répertoire
+    find "$dir" -maxdepth 1 -type f
+
+    echo ""
+    echo "####### répertoires dans $dir/"
+
+    find "$dir" -maxdepth 1 -type d | grep -v "^$dir$"
+else
+    echo "Le répertoire \"$dir\" n'existe pas ou n'est pas un répertoire."
+fi  
+</pre>
