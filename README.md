@@ -96,3 +96,6 @@ else
     echo "Le répertoire \"$dir\" n'existe pas ou n'est pas un répertoire."
 fi  
 </pre>
+
+## Exercice : Lister les utilisateurs
+### ̀listeuser.sh`
