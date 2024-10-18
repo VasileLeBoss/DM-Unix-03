@@ -98,4 +98,4 @@ fi
 </pre>
 
 ## Exercice : Lister les utilisateurs
-### Script  ̀listeuser.sh`
+### Script `listeuser.sh`
