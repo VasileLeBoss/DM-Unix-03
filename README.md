@@ -106,3 +106,29 @@ fi
 
 ## Exercice : Mon utilisateur existe t’il
 ### Script `ifuser.sh`
+<pre>
+  #!/bin/bash
+
+# Vérifier si au moins un argument a été passé
+if [ $# -ne 1 ]; then
+    echo "Veuillez fournir un nom d'utilisateur ou un UID."
+    exit 1
+fi
+
+input="$1"
+
+# Vérifier si l'entrée est un UID (numérique)
+if [[ "$input" =~ ^[0-9]+$ ]]; then
+    # Vérifier si l'UID existe
+    if id -u "$input" >/dev/null 2>&1; then
+        echo "$input existe."
+    fi
+else
+    # Vérifier si le login existe
+    if id "$input" >/dev/null 2>&1; then
+        uid=$(id -u "$input")
+        echo "L'utilisateur \"$input\" existe avec l'UID : $uid"
+    fi
+fi
+
+</pre>
